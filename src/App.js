@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Home from './Home';
+import Product from './Product';
+import Productid from './Productid';
+import Breadcrumbs from './components/Breadcrumbs';
+
 
 function App() {
+ 
+
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Breadcrumbs/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/products' element={<Product/>}/>
+        <Route path='/products/:id' element={<Productid/>}/>
+      </Routes>
     </div>
+
+
+    </BrowserRouter>
   );
 }
 
